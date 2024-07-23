@@ -1,0 +1,55 @@
+@font-face {
+  font-family: 'Regular';
+  src: url('../fonts/FOT-RodinProN-DB.otf');
+}
+
+@font-face {
+  font-family: 'Bold';
+  src: url('../fonts/FOT-RodinProN-B.otf')
+}
+
+body {
+  background-color: #000;
+  cursor: url(../assets/cursor.png), auto;
+}
+
+/* this below will be the properties of the main menu */
+.main-menu {
+  background-image: url(../assets/menu-bg.png);
+  width: 100vw; height: 100vh; /* entire viewport */
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* splash -> UI element that appears as the initial screen or the loading screen */
+.splash {
+  left: 0; top: 0; bottom: 0; right: 0;
+  position: fixed;
+  background-color: #000;
+  text-align: center;
+  align-items: center;
+  z-index: 100;
+  animation: fadeOut 250ms linear 4s forwards;
+}
+
+/* specifies the fadeOut animation cause the image to drop to 0 opacity */
+@keyframes fadeOut {
+  from {opacity: 1;} to {opacity: 0;}
+}
+
+.splash div .channels {
+  width: 68vw;
+  height: 72vh;
+  display: flex;
+  margin: auto;
+}
+
+.splash div .tip {
+  color: darkgrey;
+  font-size: x-large;
+  bottom: 10vh; left: 50%;
+  transform: translateX(50%);
+  font-family: 'Bold';
+  opacity: 0.65;
+}

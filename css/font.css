@@ -1,0 +1,11 @@
+/* font styles */
+
+@font-face {
+    font-family: 'Regular';
+    src: url('../fonts/FOT-RodinProN-DB.otf');
+}
+
+@font-face {
+    font-family: 'Bold';
+    src: url('../fonts/FOT-RodinProN-B.otf')
+}
