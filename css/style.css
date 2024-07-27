@@ -13,9 +13,14 @@ body {
   cursor: url(../assets/cursor.png), auto;
 }
 
+img {
+  pointer-events: none;
+}
+
 /* this below will be the properties of the main menu */
 .main-menu {
-  background-image: url(../assets/menu-bg.png);
+  background-image: url(../assets/bg.png);
+  background-size: cover;
   width: 100vw; height: 100vh; /* entire viewport */
   position: relative;
   overflow: hidden;
@@ -52,4 +57,57 @@ body {
   transform: translateX(50%);
   font-family: 'Bold';
   opacity: 0.65;
+}
+
+@keyframes fadeOutMiiChannel {
+  from { opacity: 0.9;} to {opacity: 0.1;}
+}
+
+@keyframes fadeInMiiLogo {
+  from {opacity: 0;} to {opacity: 1;}
+}
+
+.miiChannelAnimation {
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.miiChannelAnimation .icon1start {
+  z-index: 2;
+  opacity: 0.7;
+  position: fixed;
+  width: 26.5vw; height: 37vh;
+  animation: fadeOutMiiChannel 3000ms infinite;
+  animation-delay: 4s;
+  animation-direction: alternate;
+}
+
+.miiChannelAnimation .icon2start {
+  z-index: 1;
+  position: absolute;
+  opacity: 0;
+  width: 26.5vw; height: 37vh;
+  animation: fadeInMiiLogo 3000ms infinite;
+  animation-direction: alternate;
+}
+
+/* grid refers to the grid of all channels */
+.grid {
+  position: relative;
+  display: flex;
+}
+
+.channel {
+  display: grid;
+  gap: 0px 20px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  margin-top: 7vh;
+  margin-left: 14vw;
+}
+
+.channel .channel-occupied {
+  position: relative;
+  width: 18vw; height: 21vh;
+  background-image: url(../assets/channels/channel_frame.png);
+  background-size: 100% 100%;
 }
