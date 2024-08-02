@@ -96,6 +96,16 @@ img {
   background-size: 100% 100%;
 }
 
+.dock {
+  position: fixed;
+  width: 100vw; height: 22vh;
+  left: 40; right: 40; bottom: 0;
+  z-index: 100;
+  background-image: url(../assets/dock.png);
+  background-repeat: no-repeat;
+  background-size: 80% auto;
+}
+
 /*
 @keyframes fadeOutMiiChannel {
   from { opacity: 0.9;} to {opacity: 0.1;}

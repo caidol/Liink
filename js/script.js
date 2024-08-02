@@ -5,7 +5,7 @@ function changeImage() {
     const elements = document.querySelectorAll('.channel .channel-vacant');
     
     elements.forEach(element => {
-        console.log(`Setting image ${images[currentIndex]}`);
+        // console.log(`Setting image ${images[currentIndex]}`);
         element.style.setProperty('--background-image', `url(${images[currentIndex]})`);
     });
     
