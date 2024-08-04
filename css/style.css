@@ -65,13 +65,30 @@ img {
   margin-top: 7vh;
 }
 
+* {
+  pointer-events: none;
+}
+
 .channel .channel-occupied {
   position: relative;
   width: 18vw; height: 21vh;
   background-image: url(../assets/channels/channel_frame.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  transition: transform 0.3s ease, border 0.3s ease;
+  border: 0px solid transparent;
+  box-sizing: border-box;
+  z-index: 0;
+  pointer-events: auto;
 }
+
+.channel.channel-occupied.enlarged {
+  transform: scale(1.1);
+  z-index: 1;
+  border: 5px solid white;
+}
+
+
 
 .channel .channel-vacant {
   position: relative;
@@ -138,3 +155,4 @@ img {
   animation-direction: alternate;
 }
 */
+
