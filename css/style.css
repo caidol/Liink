@@ -63,10 +63,12 @@ img {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   margin-top: 7vh;
+  pointer-events: auto;
 }
 
 * {
   pointer-events: none;
+  cursor: url(../assets/cursor.png), auto;
 }
 
 .channel .channel-occupied {
@@ -79,7 +81,7 @@ img {
   border: 0px solid transparent;
   box-sizing: border-box;
   z-index: 0;
-  pointer-events: auto;
+  pointer-events: inherit;
 }
 
 .channel.channel-occupied.enlarged {
@@ -87,8 +89,6 @@ img {
   z-index: 1;
   border: 5px solid white;
 }
-
-
 
 .channel .channel-vacant {
   position: relative;
@@ -100,6 +100,7 @@ img {
   mask-image: url(../assets/channels/channel_mask.png);
   mask-repeat: no-repeat;
   mask-size: 18vw 21vh;
+  pointer-events: inherit;
 }
 
 .channel .channel-vacant::after {
