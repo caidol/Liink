@@ -82,12 +82,12 @@ img {
   box-sizing: border-box;
   z-index: 0;
   pointer-events: inherit;
+  overflow: hidden;
 }
 
 .channel.channel-occupied.enlarged {
   transform: scale(1.1);
   z-index: 1;
-  border: 5px solid white;
 }
 
 .channel .channel-vacant {

@@ -66,9 +66,56 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.type === 'mouseenter') {
             channel.style.transform = 'scale(1.1)';
             channel.style.zIndex = '1';
+
+            addBorder(channel, getBorderColor(channel.id));
         } else if (event.type === 'mouseleave') {
             channel.style.transform = 'scale(1)';
             channel.style.zIndex = 'auto';
+            removeBorder(channel);
+        }
+    }
+
+    function getBorderColor(channelId) {
+
+        const colorMap = {
+            'disc': 'rgba(255, 0, 0, 0.7)',   
+            'mii': 'rgba(0, 255, 0, 0.7)',    
+            'photo': 'rgba(0, 0, 255, 0.7)',   
+            'shop': 'rgba(255, 255, 0, 0.7)', 
+            'news': 'rgba(255, 0, 255, 0.7)', 
+            'forecast': 'rgba(0, 255, 255, 0.7)'
+        };
+        return colorMap[channelId] || 'rgba(255, 255, 255, 0.7)'; 
+    }
+
+    function addBorder(channel, color = 'rgba(255, 255, 255, 0.7)') {
+        let border = channel.querySelector('.channel-border');
+        if (!border) {
+            border = document.createElement('div');
+            border.className = 'channel-border';
+            channel.appendChild(border);
+        }
+        
+        border.style.position = 'absolute';
+        border.style.top = '5px';
+        border.style.left = '5px';
+        border.style.right = '5px';
+        border.style.bottom = '5px';
+        border.style.border = `2px solid ${color}`;
+        border.style.borderRadius = '15px';
+        border.style.transition = 'all 0.3s ease';
+        border.style.pointerEvents = 'none';
+        
+
+        border.offsetHeight;
+        
+        border.style.opacity = '1';
+    }
+
+    function removeBorder(channel) {
+        const border = channel.querySelector('.channel-border');
+        if (border) {
+            border.style.opacity = '0';
         }
     }
 
