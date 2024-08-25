@@ -1,11 +1,19 @@
 /* font styles */
 
+/* Rodin PRO regular font */
 @font-face {
     font-family: 'Regular';
     src: url('../fonts/FOT-RodinProN-DB.otf');
 }
 
+/* Rodin PRO bold font */
 @font-face {
     font-family: 'Bold';
     src: url('../fonts/FOT-RodinProN-B.otf')
+}
+
+/* Digital 7 mono font */
+@font-face {
+    font-family: 'TimeDisplay';
+    src: url('../fonts/digital-7\ \(mono\).ttf')
 }

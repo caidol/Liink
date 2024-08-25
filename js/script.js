@@ -1,6 +1,3 @@
-
-
-
 const images = ['../assets/channels/static1.png', '../assets/channels/static2.png', '../assets/channels/static3.png', '../assets/channels/static4.png'];
 let currentIndex = 0;
 
@@ -8,7 +5,6 @@ function changeImage() {
     const elements = document.querySelectorAll('.channel .channel-vacant');
     
     elements.forEach(element => {
-        // console.log(`Setting image ${images[currentIndex]}`);
         element.style.setProperty('--background-image', `url(${images[currentIndex]})`);
     });
     
@@ -16,38 +12,6 @@ function changeImage() {
 }
 
 setInterval(changeImage, 75); 
-
-
-/*
-document.addEventListener('DOMContentLoaded', () => {
-    const occupiedChannels = document.querySelectorAll('.channel-occupied');
-
-    console.log(`Selected ${occupiedChannels.length} occupied channels`);
-
-    if (occupiedChannels.length === 0) {
-        console.error('No occupied channels found. Check your HTML structure and class names.');
-        return;
-    }
-
-    function onHover(event) {
-        console.log('Hover detected on:', event.target.id);
-        event.target.classList.
-        element.classList.replace(".channel-occupied", ".channel-occupied.enlarged");
-    }
-
-    function onLeave(event) {
-        console.log('Leave detected on:', event.target.id);
-        element.classList.replace(".channel-occupied.enlarged", ".channel-occupied");
-    }
-
-    occupiedChannels.forEach((channel, index) => {
-        console.log(`Adding listeners to channel ${index + 1} with id: ${channel.id}`);
-        channel.addEventListener('onmouseover', onHover);
-        channel.addEventListener('onmouseout', onLeave);
-    });
-});
-
-*/
 
 document.addEventListener('DOMContentLoaded', () => {
     const mainMenu = document.querySelector('.main-menu');
@@ -124,3 +88,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log('Event listeners added to main menu');
 });
+
+/* Occupied channel on hover event listener */
+const channels = document.querySelectorAll(".channel .channel-occupied");
+channels.forEach(channel => {
+    channel.addEventListener('mouseover', () => {
+        const channelInfo = channel.querySelector(".channel-info");
+        // show info tag
+        if (channelInfo){
+            channelInfo.hidden = false;
+        } 
+    });
+
+    channel.addEventListener('mouseout', () => {
+        const channelInfo = channel.querySelector(".channel-info");
+        // hide info tag
+        if (channelInfo){
+            channelInfo.hidden = true;
+        } 
+    });
+});
+
+/* Datetime functions */
+function displayDateTime() {
+    var timeInfo = document.getElementById("time");
+    var dateInfo = document.getElementById("date");
+    
+    var monthNumbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
+    var weekDays = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
+
+    var currDate = new Date();
+
+    var weekDay = weekDays[currDate.getDay()];
+    var month = monthNumbers[currDate.getMonth()];
+    var monthDay = currDate.getDate();
+    var time = (currDate.getUTCHours() - currDate.getTimezoneOffset()/60) + ":" + (currDate.getMinutes() < 10 ? '0' : '') + currDate.getMinutes();
+
+    timeInfo.innerText = time;
+    dateInfo.innerText = weekDay + " " + monthDay + "/" + month;
+}
+
+setInterval(displayDateTime, 2000);
