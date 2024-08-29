@@ -58,6 +58,30 @@ img {
   display: flex;
 }
 
+.prev-button {
+    position: absolute;
+    background-size: 5em;
+    top: 37vh; left: 7vw;
+    width: 5em; height: 5em;
+}
+
+.prev-button img {
+    width: 100%; height: 100%;
+    object-fit: contain;
+}
+
+.next-button {
+    position: absolute;
+    background-size: 5em;
+    top: 37vh; left: 92vw;
+    width: 5em; height: 5em;
+}
+
+.next-button img {
+    width: 100%; height: 100%;
+    object-fit: contain;
+}
+
 .channel {
   display: grid;
   gap: 10px 15px;
@@ -136,7 +160,7 @@ img {
   width: 100vw; height: 22vh;
   left: 40; right: 40; bottom: 0;
   z-index: 100;
-  background-image: url(../assets/dock.png);
+  background-image: url(../assets/dock/dock.png);
   background-repeat: no-repeat;
   background-size: 100% auto;
 }
