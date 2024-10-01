@@ -1,7 +1,7 @@
 const images = ['../assets/channels/static1.png', '../assets/channels/static2.png', '../assets/channels/static3.png', '../assets/channels/static4.png'];
 let currentIndex = 0;
 
-function changeImage() {
+function changeVacantChannelImage() {
     const elements = document.querySelectorAll('.channel .channel-vacant');
     
     elements.forEach(element => {
@@ -11,7 +11,7 @@ function changeImage() {
     currentIndex = (currentIndex + 1) % images.length;
 }
 
-setInterval(changeImage, 75); 
+setInterval(changeVacantChannelImage, 75); 
 
 document.addEventListener('DOMContentLoaded', () => {
     const mainMenu = document.querySelector('.main-menu');
